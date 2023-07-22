@@ -1,7 +1,6 @@
 import { Routes, NavLink, Route } from "react-router-dom";
 import { Movies } from "pages/Movies";
 import { Home } from "pages/Home";
-import { SearchBox } from "./SearchBox";
 
 export const App = () => {
   return (

@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { MoviesByQuery } from "components/MoviesByQuery";
 
-const movieAPI = new MovieAPI
+const movieAPI = new MovieAPI()
 
 export const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();

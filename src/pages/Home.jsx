@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { AllMoviesList } from "components/AllMoviesList";
 import MovieAPI from "services/fetchAPI";
 
-const movieAPI = new MovieAPI
+const movieAPI = new MovieAPI()
 
 export const Home = () => {
     const [movies, setMovies] = useState([]);
