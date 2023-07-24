@@ -31,7 +31,7 @@ const movieAPI = new MovieAPI()
       console.log("Error searching movies:", error);
     }
   };
-
+console.log('ляляля')
     
     const updateQueryString = (value) => {
 
