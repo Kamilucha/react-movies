@@ -1,20 +1,4 @@
 
-// export async function fetchMovie() {
-//   const apiKey = '4d36de3fb8d01d2841da81446387c2b5';
-//   const URL = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}`;
-
-//   try {
-//     const response = await fetch(URL);
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.log('Error fetching movies:', error);
-//   }
-// }
-
 class MovieAPI  {
   constructor() {
     this.apiKEY = '4d36de3fb8d01d2841da81446387c2b5';
@@ -56,23 +40,63 @@ class MovieAPI  {
   }
   }
 
-  ///метод для книги по айді
+  ///метод для фільму по айді
   ///'https://api.themoviedb.org/3/movie/movie_id'
 
   async MovieById(id) {
-    const URL = `${this.baseURL}/movie/${id}?${this.apiKEY}`
+    const URL = `${this.baseURL}/movie/${id}?api_key=${this.apiKEY}`
 
       try {
-    const response = await fetch(URL);
+        const response = await fetch(URL);
+        // console.log(response)
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
-    const data = await response.json();
+        const data = await response.json();
+        // console.log(data)
         return data;
   } catch (error) {
     console.log('Error fetching movies:', error);
   }
   }
+
+    ///метод для акторів по айді
+    async CastById(id) {
+    const URL = `${this.baseURL}/movie/${id}/credits?api_key=${this.apiKEY}`
+
+      try {
+        const response = await fetch(URL);
+        // console.log(response)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+        const data = await response.json();
+        // console.log(data)
+        return data;
+  } catch (error) {
+    console.log('Error fetching movies:', error);
+  }
+    }
+  
+  
+  
+      ///метод для акторів по айді
+    async ReviewsById(id) {
+    const URL = `${this.baseURL}/movie/${id}/reviews?api_key=${this.apiKEY}`
+
+      try {
+        const response = await fetch(URL);
+        // console.log(response)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+        const data = await response.json();
+        // console.log(data)
+        return data;
+  } catch (error) {
+    console.log('Error fetching movies:', error);
+  }
+    }
 
 
 

@@ -6,7 +6,7 @@ import { MoviesByQuery } from "components/MoviesByQuery";
 
 const movieAPI = new MovieAPI()
 
-export const Movies = () => {
+ const Movies = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const movieName = searchParams.get("title") ?? "";
     const [movies, setMovies] = useState([]);
@@ -48,4 +48,6 @@ export const Movies = () => {
             <MoviesByQuery movies={movies}/>
         </main>
     )
-}
+ }
+
+ export default Movies

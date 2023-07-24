@@ -6,7 +6,7 @@ import MovieAPI from "services/fetchAPI";
 
 const movieAPI = new MovieAPI()
 
-export const Home = () => {
+const Home = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -37,3 +37,5 @@ export const Home = () => {
         // </ul>
     )
 }
+
+export default Home
