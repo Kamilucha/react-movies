@@ -14,6 +14,7 @@ const Cast = () => {
       try {
         const resp = await movieAPI.CastById(movieId);
         setCast(resp.cast);
+        console.log(resp.cast)
       } catch (error) {
         console.log("Error searching movies:", error);
       }
@@ -23,24 +24,20 @@ const Cast = () => {
         
      }, [movieId])
     
-    //   const getCastById = async () =>{
-    //     try {
-    //         const resp = await movieAPI.CastById(movieId);
-    //         console.log(resp)
-    //         if (resp.cast.length === 0) {
-    //             return "lialialia"
-    //         }
-    //         setMovieCast(resp.cast);
-    //     } catch (error) {
-    //         console.log("Error searching movies:", error);
-    //     }
-    // }
 
     return  <div>
     <h2>Cast:</h2>
     <ul>
-      {cast.map(actor => (
-        <li key={actor.id}>{actor.name}</li>
+      {cast.map(({ id, profile_path, name, character }) => (
+        <li key={id}>
+          <img src={
+                 `https://image.tmdb.org/t/p/w200/${profile_path}`
+              }
+              alt={name} />
+          <p>{name}</p>
+          <p>Character: {character}</p>
+          
+          </li>
       ))}
     </ul>
   </div>

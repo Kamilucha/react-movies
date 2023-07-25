@@ -1,7 +1,7 @@
 // import { fetchMovie } from "services/fetchAPI"
 import { useState, useEffect } from "react"
 
-import { AllMoviesList } from "components/AllMoviesList";
+import { AllMoviesList } from "components/AllMoviesList/AllMoviesList";
 import MovieAPI from "services/fetchAPI";
 
 const movieAPI = new MovieAPI()
@@ -28,13 +28,6 @@ const Home = () => {
             <h1>Tranding today</h1>
             <AllMoviesList movies={movies}/>
         </div>
-        // <ul>
-        //     {movies.map((movie) => (
-        //         <li key={movie.id}>
-        //             <Link to="">{movie.title}</Link>
-        //         </li>
-        //     ))}
-        // </ul>
     )
 }
 

@@ -1,17 +1,20 @@
 import MovieAPI from "services/fetchAPI";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react"
-import MovieInfo from "components/MovieInfo";
+import MovieInfo from "components/MovieInfo/MovieInfo";
 
 const movieAPI = new MovieAPI()
 
 const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
+    const location = useLocation();
+
+
    
-    // console.log('ляляля')
+    // console.log('ляляля') 
     // console.log({ movieId })
-    // console.log(location)
+    console.log(location)
     
 
     useEffect(() => {
@@ -31,7 +34,8 @@ const MovieDetails = () => {
     }
     
     return <>
-        <MovieInfo movie={movie} />
+                 <Link to='/movies' >Back to movies</Link>
+        <MovieInfo movie={movie}  />
         <ul>
             <li>
               <Link to='cast'>Cast</Link>
