@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const MovieInfo = ({ movie }) => {
     if (!movie) {
         return 
@@ -27,5 +29,9 @@ const MovieInfo = ({ movie }) => {
         </div>
     )
 }
+
+MovieInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
+};
 
 export default MovieInfo

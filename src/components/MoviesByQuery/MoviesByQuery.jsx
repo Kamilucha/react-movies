@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 
 
 export const MoviesByQuery = ({ movies }) => {
@@ -20,4 +20,8 @@ export const MoviesByQuery = ({ movies }) => {
             </ul>
         </div>
     )
+}
+
+MoviesByQuery.propTypes = {
+  movies: PropTypes.array.isRequired,
 }
