@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom"
 import styled from '@emotion/styled';
 import { Suspense } from "react";
-import { Header, HeaderContainer, Nav, StyledLink } from "./Layout.styled";
+import { Header, HeaderContainer, Nav} from "./Layout.styled";
 
 const Layout = () => {
 
