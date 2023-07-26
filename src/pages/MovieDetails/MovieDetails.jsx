@@ -1,6 +1,6 @@
 import MovieAPI from "services/fetchAPI";
 import { useParams, Link, Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import MovieInfo from "components/MovieInfo/MovieInfo";
 
 const movieAPI = new MovieAPI()
@@ -9,13 +9,8 @@ const MovieDetails = () => {
     const { movieId } = useParams();
     const [movie, setMovie] = useState({});
     const location = useLocation();
+    const backBtn = location.state?.from ?? '/'
 
-
-   
-    // console.log('ляляля') 
-    // console.log({ movieId })
-    console.log(location)
-    
 
     useEffect(() => {
             
@@ -34,17 +29,19 @@ const MovieDetails = () => {
     }
     
     return <>
-                 <Link to='/movies' >Back to movies</Link>
+                 <Link to={backBtn} >Back to movies</Link>
         <MovieInfo movie={movie}  />
         <ul>
             <li>
-              <Link to='cast'>Cast</Link>
+              <Link to='cast' state={{ from: backBtn }}>Cast</Link>
             </li>
             <li>
-                <Link to='reviews'>Rewievs</Link>  
+                <Link to='reviews' state={{ from: backBtn }}>Rewievs</Link>  
             </li>
         </ul>
+        <Suspense fallback={<div>Loading...</div>}>
         <Outlet/>
+        </Suspense>
     </>
 
 }
